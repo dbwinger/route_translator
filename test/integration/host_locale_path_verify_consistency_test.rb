@@ -21,14 +21,14 @@ class HostLocalePathVerifyConsistencyTest < ActionDispatch::IntegrationTest
     get '/dummy'
     assert_response :success
 
-    get Addressable::URI.normalize_component('/манекен')
+    get URI::DEFAULT_PARSER.escape('/манекен')
     assert_response :not_found
 
     host! 'ru.testapp.com'
     get '/dummy'
     assert_response :not_found
 
-    get Addressable::URI.normalize_component('/манекен')
+    get URI::DEFAULT_PARSER.escape('/манекен')
     assert_response :success
   end
 end

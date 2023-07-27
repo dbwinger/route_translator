@@ -35,7 +35,7 @@ module RouteTranslator
             sanitized_locale = RouteTranslator::LocaleSanitizer.sanitize(locale)
             translated_resource = translate_resource(str, sanitized_locale, scope)
 
-            Addressable::URI.normalize_component translated_resource
+            URI::DEFAULT_PARSER.escape translated_resource
           end
         end
 
