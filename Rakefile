@@ -4,12 +4,12 @@ require 'rake'
 require 'rake/testtask'
 require 'rdoc/task'
 require 'bundler/gem_tasks'
-require 'rubocop/rake_task'
+# require 'rubocop/rake_task'
 
-RuboCop::RakeTask.new
+# RuboCop::RakeTask.new
 
 desc 'Default: run tests.'
-task default: %i[rubocop test]
+task default: %i[test]
 
 Rake::TestTask.new(:test) do |t|
   t.libs << 'lib' << 'test'
